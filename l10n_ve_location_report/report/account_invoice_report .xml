@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_account_invoice_report_search_binaural_invoice_seller" model="ir.ui.view">
+        <field name="name">view.account.invoice.report.city.binaural.invoice</field>
+        <field name="model">account.invoice.report</field>
+        <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <filter name="client_city_id" string="Customer city" context="{'group_by':'client_city_id'}" />
+                <filter name="state_customer_id" string="Customer state"  context="{'group_by': 'state_customer_id'}" />
+            </field>
+        </field>
+    </record>
+</odoo>

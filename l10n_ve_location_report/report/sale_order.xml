@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <!-- Presupuestos-->
+    <!-- Add City customer to tree Presupuestos-->
+    <record id="view_quotation_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_city_id" string="Customer city" optional="hide" />
+                <field name="state_customer_id" string="Customer state" optional="hide" />
+            </xpath>
+            
+        </field>
+    </record>
+
+    <!-- Add filter for city of customer -Presupuestos -->
+    <record id="sale_order_view_search_inherit_quotation_inherit_binaural_location"
+        model="ir.ui.view">
+        <field name="name">sale.order.view.search.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <filter name="client_city_id" string="Customer city" context="{'group_by':'client_city_id'}" />
+                <filter name="state_customer_id" string="Customer state"  context="{'group_by': 'state_customer_id'}" />
+            </field>
+        </field>
+    </record>
+
+    <!-- Pedidos de ventas-->
+
+    <record id="view_order_location_tree" model="ir.ui.view">
+        <field name="name">sale.order.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="client_city_id" string="Customer city" optional="hide" />
+                <field name="state_customer_id" string="Customer state" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add filter for city of customer  -->
+
+    <record id="sale_order_view_search_inherit_binaural_location"
+        model="ir.ui.view">
+        <field name="name">sale.order.view.search.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_sale" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <filter name="client_city_id" string="Customer city" context="{'group_by':'client_city_id'}" />
+                <filter name="state_customer_id" string="Customer state"  context="{'group_by': 'state_customer_id'}" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
