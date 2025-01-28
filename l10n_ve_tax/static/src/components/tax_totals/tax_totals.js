@@ -52,7 +52,7 @@ export class TaxTotalsComponents extends TaxTotalsComponent {
     this.totals = totals;
   }
 }
-TaxTotalsComponents.template = "binaural_tax.TaxForeignTotalsField";
+TaxTotalsComponents.template = "l10n_ve_tax.TaxForeignTotalsField";
 TaxTotalsComponents.props = {
   ...standardFieldProps,
 };
