@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* binaural_base
+# 	* l10n_ve_base
 #
 msgid ""
 msgstr ""
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: binaural_base
-#: model:ir.model.fields,field_description:binaural_base.field_ir_module_module__binaural
+#. module: l10n_ve_base
+#: model:ir.model.fields,field_description:l10n_ve_base.field_ir_module_module__binaural
 msgid "Binaural"
 msgstr ""
 
-#. module: binaural_base
-#: model_terms:ir.ui.view,arch_db:binaural_base.res_config_settings_view_form_binaural_base
+#. module: l10n_ve_base
+#: model_terms:ir.ui.view,arch_db:l10n_ve_base.res_config_settings_view_form_binaural_base
 msgid "Binaural Settings"
 msgstr "Ajustes Binaural"
 
-#. module: binaural_base
-#: model:ir.model,name:binaural_base.model_ir_module_module
+#. module: l10n_ve_base
+#: model:ir.model,name:l10n_ve_base.model_ir_module_module
 msgid "Module"
 msgstr "Módulo"
