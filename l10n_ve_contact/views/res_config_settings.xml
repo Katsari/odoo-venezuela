@@ -5,7 +5,7 @@
         <field name="name">res.config.settings.binaural.contact</field>
         <field name="model">res.config.settings</field>
         <field name="priority" eval="100" />
-        <field name="inherit_id" ref="binaural_rate.res_config_settings_binaural_rate" />
+        <field name="inherit_id" ref="l10n_ve_rate.res_config_settings_binaural_rate" />
         <field name="arch" type="xml">
             <xpath expr="//div[@name='binaural_rate_settings']" position="after">
                 <h2>Contact Configuration</h2>
