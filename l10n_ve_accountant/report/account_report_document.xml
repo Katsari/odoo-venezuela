@@ -8,7 +8,7 @@
 
             @font-face {
                 font-family: 'Courier';
-                src: url('/binaural_accountant/static/fonts/CourierPrime-Regular.ttf') format('truetype');
+                src: url('/l10n_ve_accountant/static/fonts/CourierPrime-Regular.ttf') format('truetype');
             }
 
             * {
@@ -385,7 +385,7 @@
                 <t t-set="account_analytic_by_line_id" t-value="data['account_analytic_by_line_id']"/>
                 <t t-set="group_analytic_accounting" t-value="data['group_analytic_accounting']"/>
                 <t t-set="lang" t-value="docs[0].partner_id.lang"/>
-                <t t-call="binaural_accountant.account_report_document" t-lang="lang"/>
+                <t t-call="l10n_ve_accountant.account_report_document" t-lang="lang"/>
             </t>
 
         </t>
@@ -407,7 +407,7 @@
                 <t t-set="account_analytic_by_line_id" t-value="data['account_analytic_by_line_id']"/>
                 <t t-set="group_analytic_accounting" t-value="data['group_analytic_accounting']"/>
                 <t t-set="lang" t-value="docs[0].partner_id.lang"/>
-                <t t-call="binaural_accountant.account_report_document" t-lang="lang"/>
+                <t t-call="l10n_ve_accountant.account_report_document" t-lang="lang"/>
             </t>
 
         </t>

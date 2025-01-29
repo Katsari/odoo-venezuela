@@ -258,7 +258,7 @@ class AccountMove(models.Model):
             foreign_currency_symbol = foreign_currency_record.symbol or ""
             if view_type == "form":
                 view_id = self.env.ref(
-                    "binaural_accountant.view_account_move_form_binaural_invoice"
+                    "l10n_ve_accountant.view_account_move_form_binaural_invoice"
                 ).id
                 doc = etree.XML(res["arch"])
                 page = doc.xpath("//page[@name='foreign_currency']")
@@ -760,26 +760,9 @@ class AccountMove(models.Model):
 
         return account_analytic_by_line_id
 
+    #override 
     def _get_retention_payment_move_ids(self, line_ids):
-        self.ensure_one()
-
-        if not line_ids:
-            return []
-
-        retention_ids = line_ids.mapped("move_id.retention_islr_line_ids.retention_id")
-        retention_ids = retention_ids + line_ids.mapped(
-            "move_id.retention_iva_line_ids.retention_id"
-        )
-        retention_ids = retention_ids + line_ids.mapped(
-            "move_id.retention_municipal_line_ids.retention_id"
-        )
-
-        retention_payment_move_ids = retention_ids.payment_ids.mapped("move_id")
-
-        if not retention_payment_move_ids:
-            return []
-
-        return retention_payment_move_ids.ids
+        return []
 
     def get_account_move_report_data(self):
         self.ensure_one()
@@ -811,7 +794,7 @@ class AccountMove(models.Model):
             if self.amount_residual == 0:
                 doc_title = first_payment.name
 
-        # Used in the custom/binaural_accountant/report/account_report.py
+        # Used in the custom/l10n_ve_accountant/report/account_report.py
         data = {
             "doc_ids": line_ids_ids,
             "docs": line_ids,

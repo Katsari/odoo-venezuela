@@ -4,7 +4,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 class AccountReport(models.AbstractModel):
-    _name = "report.binaural_accountant.account_report_call"
+    _name = "report.l10n_ve_accountant.account_report_call"
 
     @api.model
     def _get_report_values(self, docids, data=None):
@@ -23,5 +23,5 @@ class AccountReport(models.AbstractModel):
         }
 
 class AccountReportRelated(models.AbstractModel):
-    _name = "report.binaural_accountant.account_related_report_call"
-    _inherit = ["report.binaural_accountant.account_report_call"]
+    _name = "report.l10n_ve_accountant.account_related_report_call"
+    _inherit = ["report.l10n_ve_accountant.account_report_call"]

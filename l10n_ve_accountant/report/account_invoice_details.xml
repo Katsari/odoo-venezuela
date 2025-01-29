@@ -5,7 +5,7 @@
         <field name="name">Sale Details</field>
         <field name="model">account.invoices.details</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">binaural_accountant.report_account_invoices_details</field>
+        <field name="report_name">l10n_ve_accountant.report_account_invoices_details</field>
     </record>
 
     <template id="report_account_invoices_details">

@@ -16,6 +16,6 @@ class InvoiceDetailsWizard(models.TransientModel):
     show_documents = fields.Boolean(default=True)
 
     def action_print(self):
-        return self.env.ref("binaural_accountant.report_account_invoices_details").report_action(
+        return self.env.ref("l10n_ve_accountant.report_account_invoices_details").report_action(
             self
         )
