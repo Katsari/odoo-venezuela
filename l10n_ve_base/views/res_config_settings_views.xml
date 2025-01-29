@@ -7,10 +7,6 @@
         <field name="arch" type="xml">
             <xpath expr="//form" position="inside">
                 <app data-string="Binaural Settings" string="Binaural Settings" name="binaural_settings" logo="../static/description/icon.png">
-                    <div id="binaural_config">
-                        <block title="Binaural Settings" name="binaural_setting_container">
-                        </block>
-                    </div>
                 </app>
             </xpath>
         </field>
