@@ -2,14 +2,14 @@
 <odoo>
 
     <data>
-        <record id="action_invoice_free_form_binaural_invoice" model="ir.actions.report">
+        <record id="action_invoice_free_form_l10n_ve_invoice" model="ir.actions.report">
             <field name="name">Free Form</field>
             <field name="model">account.move</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">binaural_invoice.template_invoice_free_form_binaural_invoice</field>
-            <field name="report_file">binaural_invoice.template_invoice_free_form_binaural_invoice</field>
+            <field name="report_name">l10n_ve_invoice.template_invoice_free_form_l10n_ve_invoice</field>
+            <field name="report_file">l10n_ve_invoice.template_invoice_free_form_l10n_ve_invoice</field>
             <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_') + '.pdf')</field>
-            <field name="paperformat_id" ref="binaural_invoice.invoice_free_form_paperformat_binaural_invoice"/>
+            <field name="paperformat_id" ref="l10n_ve_invoice.invoice_free_form_paperformat_binaural_invoice"/>
             <field name="binding_model_id" ref="account.model_account_move"/>
             <field name="binding_type">report</field>
             <field name="print_report_name" >(object.state == 'posted') and ((object.name or 'INV').replace('/','_') + '.pdf')</field>
@@ -188,7 +188,7 @@
                                 <table class="table  table-borderless" style="page-break-inside: avoid;">
                                     <!--Tax totals-->
                                     <t t-set="tax_totals" t-value="o.tax_totals"/>
-                                    <t t-call="binaural_invoice.document_tax_totals"/>
+                                    <t t-call="l10n_ve_invoice.document_tax_totals"/>
                                 </table>
                             </div>
                         </div>
@@ -276,7 +276,7 @@
                 </tr>
 
                 <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
-                <t t-call="binaural_invoice.tax_groups_totals"/>
+                <t t-call="l10n_ve_invoice.tax_groups_totals"/>
             </t>
 
             <t t-set="has_rounding" t-value="'formatted_amount_total_rounded' in tax_totals"/>
@@ -313,7 +313,7 @@
             </tr>
         </template>
 
-        <template id="template_invoice_free_form_binaural_invoice">
+        <template id="template_invoice_free_form_l10n_ve_invoice">
             <t t-call="web.html_container">
                 <t t-call="web.basic_layout">
                     <t t-foreach="docs" t-as="o">
@@ -321,7 +321,7 @@
                         <t t-set="o" t-value="o.with_context(lang=lang)" />
                         <t t-set="base_vef" t-value="o.currency_id.id == %(base.VEF)s"/>
                         <t t-set="forced_vat" t-value="o.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
-                        <t t-call="binaural_invoice.report_freeform_document" t-lang="lang"/>
+                        <t t-call="l10n_ve_invoice.report_freeform_document" t-lang="lang"/>
                     </t>
                 </t>
             </t>

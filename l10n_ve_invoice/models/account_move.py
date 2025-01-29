@@ -11,7 +11,7 @@ _logger = logging.getLogger(__name__)
 
 class AccountMove(models.Model):
     _name = "account.move"
-    _inherit = ["account.move", "filter.partner.mixin"]
+    _inherit = ["account.move"]
 
     correlative = fields.Char("Control Number", copy=False, help="Sequence control number")
     invoice_reception_date = fields.Date(
@@ -138,7 +138,7 @@ class AccountMove(models.Model):
         res = super()._post(soft)
         for move in res:
             if move.is_valid_to_sequence():
-                move.correlative = move.get_sequence(move.journal_id.fiscal)
+                move.correlative = move.get_sequence()
         return res
 
     @api.model
@@ -150,13 +150,11 @@ class AccountMove(models.Model):
         Returns:
             True or False whether the invoice already has a sequence number or not.
         """
-        is_journal_fiscal = self.journal_id.fiscal
         journal_type = self.journal_id.type == "sale"
         is_contingency = self.journal_id.is_contingency
         is_series_invoicing_enabled = self.company_id.group_sales_invoicing_series
         is_valid = (
-            is_journal_fiscal
-            and not self.correlative
+            not self.correlative
             and journal_type
             and (not is_contingency or is_series_invoicing_enabled)
         )
@@ -164,7 +162,7 @@ class AccountMove(models.Model):
         return is_valid
 
     @api.model
-    def get_sequence(self, is_fiscal=False):
+    def get_sequence(self):
         """
         Allows the invoice to have both a generic sequence
         number or a specific one given certain conditions.
@@ -179,7 +177,7 @@ class AccountMove(models.Model):
         sequence = self.env["ir.sequence"].sudo()
         correlative = None
 
-        if is_series_invoicing_enabled and is_fiscal:
+        if is_series_invoicing_enabled:
             correlative = self.journal_id.series_correlative_sequence_id
 
             if not correlative:
