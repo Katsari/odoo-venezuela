@@ -12,7 +12,7 @@ class ResConfigSettings(models.TransientModel):
     group_sales_invoicing_series = fields.Boolean(
         related="company_id.group_sales_invoicing_series",
         readonly=False,
-        implied_group="binaural_invoice.group_sales_invoicing_series",
+        implied_group="l10n_ve_invoice.group_sales_invoicing_series",
     )
     show_total_on_usd_invoice = fields.Boolean(
         related="company_id.show_total_on_usd_invoice", readonly=False

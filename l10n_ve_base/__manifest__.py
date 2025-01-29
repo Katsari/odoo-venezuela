@@ -12,6 +12,6 @@
     "depends": ["base", "base_setup"],
     # always loaded
     "auto_install": True,
-    "data": ["data/ir_config_parameter.xml", "views/res_config_settings_views.xml"],
+    "data": ["views/res_config_settings_views.xml"],
     "binaural": True,
 }

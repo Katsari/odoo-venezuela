@@ -51,7 +51,7 @@ class TestAccountMove(AccountTestInvoicingCommon):
         when the module is installed.
         """
 
-        generic_sequence = self.env.ref("binaural_invoice.invoice_correlative")
+        generic_sequence = self.env.ref("l10n_ve_invoice.invoice_correlative")
         self.assertTrue(generic_sequence, "The generic invoice sequence was not created")
     
     def test_check_move_type_correlative_field_state(self):

@@ -11,11 +11,10 @@
     "depends": [
         "base",
         "web",
-        "account_accountant",
+        "account",
         "l10n_ve_tax",
         "l10n_ve_contact",
         "l10n_ve_rate",
-        "l10n_ve_fiscal",
     ],
     # always loaded
     "data": [

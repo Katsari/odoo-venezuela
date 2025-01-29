@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* binaural_rate
+# 	* l10n_ve_rate
 #
 msgid ""
 msgstr ""
@@ -15,60 +15,60 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: binaural_rate
-#: model_terms:ir.ui.view,arch_db:binaural_rate.res_config_settings_binaural_rate
+#. module: l10n_ve_rate
+#: model_terms:ir.ui.view,arch_db:l10n_ve_rate.res_config_settings_binaural_rate
 msgid "<span>Select alternate currency</span>"
 msgstr "Seleccionar moneda alterna"
 
-#. module: binaural_rate
-#: model_terms:ir.ui.view,arch_db:binaural_rate.res_config_settings_binaural_rate
+#. module: l10n_ve_rate
+#: model_terms:ir.ui.view,arch_db:l10n_ve_rate.res_config_settings_binaural_rate
 msgid "Binaural"
 msgstr ""
 
-#. module: binaural_rate
-#: model:ir.model,name:binaural_rate.model_res_company
+#. module: l10n_ve_rate
+#: model:ir.model,name:l10n_ve_rate.model_res_company
 msgid "Companies"
 msgstr "Empresas"
 
-#. module: binaural_rate
-#: model:ir.model.fields,field_description:binaural_rate.field_res_config_settings__company_id
+#. module: l10n_ve_rate
+#: model:ir.model.fields,field_description:l10n_ve_rate.field_res_config_settings__company_id
 msgid "Company"
 msgstr "Compañía"
 
-#. module: binaural_rate
-#: model:ir.model,name:binaural_rate.model_res_config_settings
+#. module: l10n_ve_rate
+#: model:ir.model,name:l10n_ve_rate.model_res_config_settings
 msgid "Config Settings"
 msgstr "Ajustes de configuración"
 
-#. module: binaural_rate
-#: model:ir.model,name:binaural_rate.model_res_currency
+#. module: l10n_ve_rate
+#: model:ir.model,name:l10n_ve_rate.model_res_currency
 msgid "Currency"
 msgstr "Divisa"
 
-#. module: binaural_rate
-#: model:ir.model.fields,field_description:binaural_rate.field_res_company__currency_foreign_id
-#: model:ir.model.fields,field_description:binaural_rate.field_res_config_settings__currency_foreign_id
+#. module: l10n_ve_rate
+#: model:ir.model.fields,field_description:l10n_ve_rate.field_res_company__currency_foreign_id
+#: model:ir.model.fields,field_description:l10n_ve_rate.field_res_config_settings__currency_foreign_id
 msgid "Currency Foreign"
 msgstr "Moneda alterna"
 
-#. module: binaural_rate
-#: model:ir.model.fields,help:binaural_rate.field_res_company__currency_foreign_id
-#: model:ir.model.fields,help:binaural_rate.field_res_config_settings__currency_foreign_id
+#. module: l10n_ve_rate
+#: model:ir.model.fields,help:l10n_ve_rate.field_res_company__currency_foreign_id
+#: model:ir.model.fields,help:l10n_ve_rate.field_res_config_settings__currency_foreign_id
 msgid "Currency Foreign for the company"
 msgstr "Moneda alterna de la compañía"
 
-#. module: binaural_rate
-#: model:ir.model,name:binaural_rate.model_res_currency_rate
+#. module: l10n_ve_rate
+#: model:ir.model,name:l10n_ve_rate.model_res_currency_rate
 msgid "Currency Rate"
 msgstr "Tasa de cambio"
 
-#. module: binaural_rate
-#: model_terms:ir.ui.view,arch_db:binaural_rate.res_config_settings_binaural_rate
+#. module: l10n_ve_rate
+#: model_terms:ir.ui.view,arch_db:l10n_ve_rate.res_config_settings_binaural_rate
 msgid "Rates Configuration"
 msgstr "Configuración de tasas"
 
-#. module: binaural_rate
-#: model_terms:ir.ui.view,arch_db:binaural_rate.res_config_settings_binaural_rate
+#. module: l10n_ve_rate
+#: model_terms:ir.ui.view,arch_db:l10n_ve_rate.res_config_settings_binaural_rate
 msgid ""
 "Select the alternate currency that the system will use to make an\n"
 "                                accounting copy in the selected currency"
@@ -76,9 +76,9 @@ msgstr ""
 "Seleccione la moneda alterna que usara el sistema para realizar una\n"
 "                                copia contable en la moneda seleccionada"
 
-#. module: binaural_rate
+#. module: l10n_ve_rate
 #. odoo-python
-#: code:addons/binaural_rate/models/res_company.py:0
+#: code:addons/l10n_ve_rate/models/res_company.py:0
 #, python-format
 msgid ""
 "The currency already has accounting movements, you cannot deactivate this "
@@ -87,10 +87,10 @@ msgstr ""
 "La moneda ya tiene movimientos contables, no puedes desactivar esta moneda "
 "foránea."
 
-#. module: binaural_rate
+#. module: l10n_ve_rate
 #. odoo-python
-#: code:addons/binaural_rate/models/res_config_settings.py:0
-#: code:addons/binaural_rate/models/res_config_settings.py:0
+#: code:addons/l10n_ve_rate/models/res_config_settings.py:0
+#: code:addons/l10n_ve_rate/models/res_config_settings.py:0
 #, python-format
 msgid ""
 "The currency foreign must be different from the currency of the company"

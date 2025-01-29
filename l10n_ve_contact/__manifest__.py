@@ -8,7 +8,7 @@
     "category": "Contacts/Contacts",
     "version": "17.0.1.0.2",
     # any module necessary for this one to work correctly
-    'depends': ['base','contacts','binaural_rate'],
+    'depends': ['base','contacts','l10n_ve_rate'],
 
     # always loaded
     'data': [

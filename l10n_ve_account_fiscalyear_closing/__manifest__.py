@@ -12,7 +12,6 @@
         "account_fiscal_year_closing",
         "l10n_ve_contact",
         "l10n_ve_rate",
-        "l10n_ve_fiscal",
     ],
     # always loaded
     "data": [

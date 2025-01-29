@@ -5,21 +5,18 @@
     "version": "17.0.1.0.3",
     "license": "LGPL-3",
     "author": "Binauraldev",
-    "website": "https://binauraldev.com/",
+    "website": "https://l10n_vedev.com/",
     "category": "Accounting/Localizations/Account Chart",
     # any module necessary for this one to work correctly
     "depends": [
-        "binaural_base",
-        "binaural_accountant",
-        "binaural_contact",
-        "binaural_fiscal",
-        "binaural_tax",
-        "binaural_filter_partner",
-        "od_journal_sequence",
+        "l10n_ve_base",
+        "l10n_ve_accountant",
+        "l10n_ve_contact",
+        "l10n_ve_tax",
     ],
     # always loaded
     "data": [
-        "security/binaural_invoice_groups.xml",
+        "security/l10n_ve_invoice_groups.xml",
         "security/ir.model.access.csv",
         "security/ir_rule.xml",
         "data/account_data.xml",
@@ -36,5 +33,4 @@
     ],
     "images": ["static/description/icon.png"],
     "application": True,
-    "binaural": True,
 }

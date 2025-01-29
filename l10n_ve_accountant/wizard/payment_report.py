@@ -25,6 +25,6 @@ class PaymentReport(models.TransientModel):
                 "end_date": self.end_date,
             }
         }
-        return self.env.ref("binaural_accountant.action_report_all_payments").report_action(
+        return self.env.ref("l10n_ve_accountant.action_report_all_payments").report_action(
             self, data=data
         )

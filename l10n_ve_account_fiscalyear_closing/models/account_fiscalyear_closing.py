@@ -116,7 +116,7 @@ class AccountFiscalyearClosingConfig(models.Model):
             balance = False
             if closing_type == "balance":
                 # Get all lines
-                lines = account_map.account_lines_get(account, self.fyc_id.journal_type)
+                lines = account_map.account_lines_get(account)
 
                 balance, move_line, rate = account_map.move_line_prepare(account, lines)
                 if move_line:
@@ -144,46 +144,16 @@ class AccountFiscalyearClosingConfig(models.Model):
 class AccountFiscalyearClosing(models.Model):
     _inherit = "account.fiscalyear.closing"
 
-    journal_type = fields.Selection(
-        [
-            ("fiscal", "Fiscal Dairy"),
-            ("nofiscal", "No Fiscal Dairy"),
-            ("all", "All Dairy"),
-        ],
-        default="all",
-    )
-
     def draft_moves_check(self):
         for closing in self:
-            if closing.journal_type == "fiscal":
-                draft_moves = self.env["account.move"].search(
-                    [
-                        ("company_id", "=", closing.company_id.id),
-                        ("state", "=", "draft"),
-                        ("date", ">=", closing.date_start),
-                        ("date", "<=", closing.date_end),
-                        ("journal_id.fiscal", "=", True),
-                    ]
-                )
-            elif closing.journal_type == "nofiscal":
-                draft_moves = self.env["account.move"].search(
-                    [
-                        ("company_id", "=", closing.company_id.id),
-                        ("state", "=", "draft"),
-                        ("date", ">=", closing.date_start),
-                        ("date", "<=", closing.date_end),
-                        ("journal_id.fiscal", "=", False),
-                    ]
-                )
-            else:
-                draft_moves = self.env["account.move"].search(
-                    [
-                        ("company_id", "=", closing.company_id.id),
-                        ("state", "=", "draft"),
-                        ("date", ">=", closing.date_start),
-                        ("date", "<=", closing.date_end),
-                    ]
-                )
+            draft_moves = self.env["account.move"].search(
+                [
+                    ("company_id", "=", closing.company_id.id),
+                    ("state", "=", "draft"),
+                    ("date", ">=", closing.date_start),
+                    ("date", "<=", closing.date_end),
+                ]
+            )
             if draft_moves:
                 msg = _("Se encontraron uno o más movimientos sin asentar: \n")
                 for move in draft_moves:
@@ -238,7 +208,6 @@ class AccountFiscalyearClosing(models.Model):
             ],
             order="code ASC",
         )
-        fiscal = {"fiscal": True, "nofiscal": False}
 
         domain = [
             ("company_id", "=", self.company_id.id),
@@ -247,9 +216,6 @@ class AccountFiscalyearClosing(models.Model):
             ("date", "<=", self.date_end),
             ("move_id.state", "!=", "cancel"),
         ]
-
-        if self.journal_type != "all":
-            domain.append(("move_id.journal_id.fiscal", "=", fiscal[self.journal_type]))
 
         balances = self.env["account.move.line"].read_group(
             domain=domain,
@@ -264,11 +230,8 @@ class AccountFiscalyearClosing(models.Model):
         for balance_dict in balances:
             balance = balance_dict.get("balance", 0)
             foreign_balance = balance_dict.get("foreign_balance", 0)
-            if (
-                currencies["bsd_id"] == currencies["foreign_currency"] and balance == 0
-            ) or (
-                currencies["bsd_id"] != currencies["foreign_currency"]
-                and foreign_balance == 0
+            if (currencies["bsd_id"] == currencies["foreign_currency"] and balance == 0) or (
+                currencies["bsd_id"] != currencies["foreign_currency"] and foreign_balance == 0
             ):
                 continue
 
@@ -288,9 +251,7 @@ class AccountFiscalyearClosing(models.Model):
                     "manually_set_rate": True,
                     "foreign_rate": rate,
                     "foreign_inverse_rate": (
-                        rate
-                        if currencies["bsd_id"] == currencies["foreign_currency"]
-                        else 1 / rate
+                        rate if currencies["bsd_id"] == currencies["foreign_currency"] else 1 / rate
                     ),
                     "line_ids": [
                         (
@@ -373,15 +334,13 @@ class AccountFiscalyearClosingMapping(models.Model):
                     "date": date,
                     "partner_id": partner_id,
                     "foreign_rate": rate,
-                    "foreign_inverse_rate": (
-                        rate if bsd_id == foreign_currency.id else 1 / rate
-                    ),
+                    "foreign_inverse_rate": (rate if bsd_id == foreign_currency.id else 1 / rate),
                 }
             else:
                 balance = 0
         return balance, move_line, abs(rate)
 
-    def account_lines_get(self, account, journal_type):
+    def account_lines_get(self, account):
         self.ensure_one()
         start = self.fyc_config_id.fyc_id.date_start
         end = self.fyc_config_id.fyc_id.date_end
@@ -393,24 +352,17 @@ class AccountFiscalyearClosingMapping(models.Model):
             ("date", "<=", end),
             ("move_id.state", "!=", "cancel"),
         ]
-        if journal_type == "fiscal":
-            domain = domain + [("move_id.journal_id.fiscal", "=", True)]
-            return self.env["account.move.line"].read_group(domain)
-        elif journal_type == "nofiscal":
-            domain = domain + [("move_id.journal_id.fiscal", "=", False)]
-            return self.env["account.move.line"].read_group(domain)
-        else:
-            return self.env["account.move.line"].read_group(
-                domain=domain,
-                fields=[
-                    "debit",
-                    "credit",
-                    "foreign_debit",
-                    "foreign_credit",
-                    "account_id",
-                ],
-                groupby=["account_id"],
-            )
+        return self.env["account.move.line"].read_group(
+            domain=domain,
+            fields=[
+                "debit",
+                "credit",
+                "foreign_debit",
+                "foreign_credit",
+                "account_id",
+            ],
+            groupby=["account_id"],
+        )
 
     def account_partners_get(self, account):
         self.ensure_one()
