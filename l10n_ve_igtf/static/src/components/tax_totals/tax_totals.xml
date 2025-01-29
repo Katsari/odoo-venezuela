@@ -67,20 +67,19 @@
                     </td>
                 </tr>
             </t>
-                <tr>
-                    <td class="o_td_label">
-                        <label class="o_form_label o_tax_total_label">Total with IGTF</label>
-                    </td>
+            <tr>
+                <td class="o_td_label">
+                    <label class="o_form_label o_tax_total_label">Total with IGTF</label>
+                </td>
 
-                    <td>
-                        <span
-                            name="amount_total_igtf"
-                            t-att-class="Object.keys(totals.groups_by_subtotal).length > 0 ? 'oe_subtotal_footer_separator' : ''"
-                            t-out="totals.formatted_foreign_amount_total_igtf"
-                            t-attf-style="{{ !totals.formatted_amount_total_rounded ? 'font-size: 1.3em; font-weight: bold; white-space: nowrap;' : 'font-size: 1em;' }}"
-                        />
-                    </td>
-                </tr>
+                <td>
+                    <span
+                        name="amount_total_igtf"
+                        class="o_tax_group_amount_value"
+                        t-out="totals.formatted_foreign_amount_total_igtf"
+                    />
+                </td>
+            </tr>
         </xpath>
     </t>
 
@@ -148,20 +147,18 @@
                     </td>
                 </tr>
             </t>
-                <tr>
-                    <td class="o_td_label">
-                        <label class="o_form_label o_tax_total_label">Total with IGTF</label>
-                    </td>
-
-                    <td>
-                        <span
-                            name="amount_total_igtf"
-                            t-att-class="Object.keys(totals.groups_by_subtotal).length > 0 ? 'oe_subtotal_footer_separator' : ''"
-                            t-out="totals.formatted_amount_total_igtf"
-                            t-attf-style="{{ !totals.formatted_amount_total_rounded ? 'font-size: 1.3em; font-weight: bold; white-space: nowrap;' : 'font-size: 1em;' }}"
-                        />
-                    </td>
-                </tr>
+            <tr>
+                <td class="o_td_label">
+                    <label class="o_form_label o_tax_total_label">Total with IGTF</label>
+                </td>
+                <td>
+                    <span
+                        name="amount_total_igtf"
+                        class="o_tax_group_amount_value"
+                        t-out="totals.formatted_amount_total_igtf"
+                    />
+                </td>
+            </tr>
         </xpath>
     </t>
 

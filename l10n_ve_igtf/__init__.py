@@ -1,4 +1,5 @@
 from . import models
+from . import wizard
 
 from odoo.tools import column_exists, create_column
 

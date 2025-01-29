@@ -21,6 +21,7 @@
         "views/res_config_settings.xml",
         "views/res_company.xml",
         "report/invoice_free_form.xml",
+        "wizard/account_payment_register.xml",
     ],
     "images": ["static/description/icon.png"],
     "assets": {

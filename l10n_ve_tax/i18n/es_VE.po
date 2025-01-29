@@ -91,11 +91,6 @@ msgid "General aliquot sale"
 msgstr "Alícuota general ventas"
 
 #. module: l10n_ve_tax
-#: model:ir.model.fields,field_description:l10n_ve_tax.field_res_company__module_binaural_igtf
-msgid "IGTF"
-msgstr ""
-
-#. module: l10n_ve_tax
 #: model_terms:ir.ui.view,arch_db:l10n_ve_tax.res_config_settings_binaural_taxes
 msgid "IGTF Settings"
 msgstr "Configuraciones de IGTF"
@@ -104,11 +99,6 @@ msgstr "Configuraciones de IGTF"
 #: model:ir.model,name:l10n_ve_tax.model_account_move_line
 msgid "Journal Item"
 msgstr "Apunte contable"
-
-#. module: l10n_ve_tax
-#: model:ir.model.fields,field_description:l10n_ve_tax.field_res_config_settings__module_binaural_base_igtf
-msgid "Module Binaural Base Igtf"
-msgstr ""
 
 #. module: l10n_ve_tax
 #: model:ir.model.fields,field_description:l10n_ve_tax.field_res_company__no_deductible_extend_aliquot_purchase
