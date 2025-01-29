@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* binaural_ref_bank
+# 	* l10n_ve_ref_bank
 #
 msgid ""
 msgstr ""
@@ -15,46 +15,46 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: binaural_ref_bank
+#. module: l10n_ve_ref_bank
 #. odoo-python
-#: code:addons/binaural_ref_bank/models/account_payment.py:0
+#: code:addons/l10n_ve_ref_bank/models/account_payment.py:0
 #, python-format
 msgid "A payment already exists with the same reference (memo)"
 msgstr "Ya existe un pago con la misma referencia (memo)"
 
-#. module: binaural_ref_bank
-#: model_terms:ir.ui.view,arch_db:binaural_ref_bank.res_config_settings_binaural_ref_bank
+#. module: l10n_ve_ref_bank
+#: model_terms:ir.ui.view,arch_db:l10n_ve_ref_bank.res_config_settings_binaural_ref_bank
 msgid "Activate the validation of Bank references"
 msgstr "Activar la validación de referencias bancarias"
 
-#. module: binaural_ref_bank
-#: model:ir.model,name:binaural_ref_bank.model_res_company
+#. module: l10n_ve_ref_bank
+#: model:ir.model,name:l10n_ve_ref_bank.model_res_company
 msgid "Companies"
 msgstr "Compañías"
 
-#. module: binaural_ref_bank
-#: model:ir.model,name:binaural_ref_bank.model_res_config_settings
+#. module: l10n_ve_ref_bank
+#: model:ir.model,name:l10n_ve_ref_bank.model_res_config_settings
 msgid "Config Settings"
 msgstr "Ajustes de Configuración"
 
-#. module: binaural_ref_bank
-#: model:ir.model,name:binaural_ref_bank.model_account_journal
+#. module: l10n_ve_ref_bank
+#: model:ir.model,name:l10n_ve_ref_bank.model_account_journal
 msgid "Journal"
 msgstr "Diario"
 
-#. module: binaural_ref_bank
-#: model:ir.model,name:binaural_ref_bank.model_account_payment
+#. module: l10n_ve_ref_bank
+#: model:ir.model,name:l10n_ve_ref_bank.model_account_payment
 msgid "Payments"
 msgstr "Pagos"
 
-#. module: binaural_ref_bank
-#: model:ir.model.fields,field_description:binaural_ref_bank.field_account_journal__ref_required
-#: model:ir.model.fields,field_description:binaural_ref_bank.field_res_company__ref_required
-#: model:ir.model.fields,field_description:binaural_ref_bank.field_res_config_settings__ref_required
+#. module: l10n_ve_ref_bank
+#: model:ir.model.fields,field_description:l10n_ve_ref_bank.field_account_journal__ref_required
+#: model:ir.model.fields,field_description:l10n_ve_ref_bank.field_res_company__ref_required
+#: model:ir.model.fields,field_description:l10n_ve_ref_bank.field_res_config_settings__ref_required
 msgid "Ref Required"
 msgstr "Ref requerida"
 
-#. module: binaural_ref_bank
-#: model:ir.model.fields,field_description:binaural_ref_bank.field_account_journal__ref_length_required
+#. module: l10n_ve_ref_bank
+#: model:ir.model.fields,field_description:l10n_ve_ref_bank.field_account_journal__ref_length_required
 msgid "Ref length required"
 msgstr "Longitud requerida en la ref."
