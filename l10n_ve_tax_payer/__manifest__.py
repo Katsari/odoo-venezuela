@@ -1,7 +1,7 @@
 {
     "name": "Binaural Technical Tax Payer",
     "summary": "Modulo para campo de identificación del contribuyente",
-    "license": "AGPL-3",
+    "license": "LGPL-3",
     "description": "Modulo para campo de identificación del contribuyente",
     "author": "Binauraldev",
     "website": "https://binauraldev.com/",
