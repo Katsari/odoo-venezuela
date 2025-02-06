@@ -1,5 +1,5 @@
 {
-    "name": "Binaural Tasa de Cambio",
+    "name": "Venezuela - Tasa de Cambio",
     "summary": """
         Módulo para obtener la tasa de cambio de la moneda base a la moneda extranjera
     """,
@@ -12,7 +12,7 @@
     "depends": ["base", "base_setup", "l10n_ve_base","currency_rate_live"],
     # always loaded
     "data": [
-        "views/res_config_settings.xml",
+        # "views/res_config_settings.xml",
     ],
     "binaural": True,
 }
